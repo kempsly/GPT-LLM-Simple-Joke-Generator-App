@@ -1,0 +1,11 @@
+{% for joke in jokes %}
+<div id="joke-{{ joke[1] }}" class="p-4 bg-white rounded shadow mb-4">
+    <p>{{ joke[0] }}</p>
+    <div class="flex space-x-2 mt-2">
+        <button hx-post="/rate_joke" hx-vals='{"id": "{{ joke[1] }}", "rating": "like"}' hx-swap="outerHTML"
+            class="bg-green-500 text-white p-2 rounded">👍</button>
+        <button hx-post="/rate_joke" hx-vals='{"id": "{{ joke[1]  }}", "rating": "dislike"}' hx-swap="outerHTML"
+            class="bg-red-500 text-white p-2 rounded">👎</button>
+    </div>
+</div>
+{% endfor %}

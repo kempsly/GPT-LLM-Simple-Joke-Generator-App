@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <title>Joke Generator</title>
+</head>
+
+<body class="bg-gray-100 p-6">
+    <div class="max-w-3xl mx-auto">
+        <h1 class="text-3xl font-bold mb-4">Joke Generator</h1>
+        <form id="jokeForm" hx-post="/generate_jokes" hx-trigger="submit" hx-target="#jokes" hx-swap="innerHTML">
+            <input type="text" name="topic" placeholder="Enter a topic" class="p-2 border rounded mb-4 w-full" required>
+            <button type="submit" class="bg-blue-500 text-white p-2 rounded flex items-center justify-center">
+                <span id="button-text" class="ml-2">Generate Jokes</span>
+                <span
+                    class="htmx-indicator animate-spin inline-block w-5 h-5 border-2 border-gray-300 border-t-blue-500 rounded-full ml-2"></span>
+            </button>
+        </form>
+        <div id="jokes" class="mt-4"></div>
+    </div>
+
+    <script src="https://unpkg.com/htmx.org@1.9.12"
+        integrity="sha384-ujb1lZYygJmzgSwoxRggbCHcjc0rB2XoQrxeTUQyRjrOnlCoYta87iKBWq3EsdM2"
+        crossorigin="anonymous"></script>
+
+</body>
+
+</html>
